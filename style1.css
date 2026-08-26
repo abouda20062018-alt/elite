@@ -1,0 +1,422 @@
+/* ================================
+   ELITE ROBOTIQUE
+   ADMIN VERIFICATION PAGE
+   ================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(25, 188, 191, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(0, 71, 187, 0.14),
+            transparent 35%
+        ),
+        #f7fbff;
+
+    color: #061A35;
+
+    overflow: hidden;
+}
+
+
+/* ================================
+   HEADER
+   ================================ */
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 45px;
+
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #061A35;
+}
+
+.brand img {
+    width: 48px;
+    height: 48px;
+
+    object-fit: contain;
+}
+
+
+/* ================================
+   BACKGROUND LOGO
+   ================================ */
+
+.background-logo {
+    position: fixed;
+
+    width: 600px;
+    height: 600px;
+
+    object-fit: contain;
+
+    right: -120px;
+    bottom: -150px;
+
+    opacity: 0.045;
+
+    z-index: 0;
+
+    transform: rotate(-8deg);
+}
+
+
+/* ================================
+   MAIN CONTAINER
+   ================================ */
+
+.container {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index: 2;
+
+    padding: 100px 20px 40px;
+}
+
+
+/* ================================
+   CARD
+   ================================ */
+
+.card {
+    width: 430px;
+
+    padding: 45px 45px 40px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border-radius: 25px;
+
+    border: 1px solid rgba(0, 71, 187, 0.08);
+
+    box-shadow:
+        0 25px 70px rgba(6, 26, 53, 0.12),
+        0 5px 20px rgba(0, 71, 187, 0.08);
+
+    text-align: center;
+
+    position: relative;
+
+    backdrop-filter: blur(10px);
+
+    animation: cardAppear 0.7s ease;
+}
+
+
+/* ================================
+   CARD TOP DECORATION
+   ================================ */
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    border-radius: 25px 25px 0 0;
+
+    background: linear-gradient(
+        90deg,
+        #0047BB,
+        #19BCBF
+    );
+}
+
+
+/* ================================
+   LOGO INSIDE CARD
+   ================================ */
+
+.card-logo {
+    width: 85px;
+    height: 85px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        rgba(0, 71, 187, 0.08),
+        rgba(25, 188, 191, 0.10)
+    );
+}
+
+.card-logo img {
+    width: 65px;
+    height: 65px;
+
+    object-fit: contain;
+}
+
+
+/* ================================
+   TITLE
+   ================================ */
+
+h1 {
+    font-size: 30px;
+
+    font-weight: 700;
+
+    color: #061A35;
+
+    margin-bottom: 8px;
+
+    letter-spacing: -0.5px;
+}
+
+
+.subtitle {
+    color: #0047BB;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    margin-bottom: 25px;
+}
+
+
+.instruction {
+    color: #586678;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+
+/* ================================
+   INPUT
+   ================================ */
+
+.input-group {
+    text-align: left;
+
+    margin-bottom: 22px;
+}
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #061A35;
+}
+
+.input-group input {
+    width: 100%;
+
+    height: 52px;
+
+    padding: 0 17px;
+
+    border: 2px solid #e6e8eb;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #061A35;
+
+    font-size: 15px;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.input-group input::placeholder {
+    color: #8c96a2;
+}
+
+.input-group input:focus {
+    border-color: #19BCBF;
+
+    box-shadow:
+        0 0 0 4px rgba(25, 188, 191, 0.12);
+
+    transform: translateY(-1px);
+}
+
+
+/* ================================
+   BUTTON
+   ================================ */
+
+.verify-btn {
+    width: 100%;
+
+    height: 53px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #0047BB,
+        #19BCBF
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0, 71, 187, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.verify-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 71, 187, 0.28);
+
+    filter: brightness(1.05);
+}
+
+.verify-btn:active {
+    transform: translateY(0);
+}
+
+
+/* ================================
+   VERIFICATION MESSAGE
+   ================================ */
+
+#ch1 {
+    display: block;
+
+    margin-top: 18px;
+
+    min-height: 20px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* ================================
+   ANIMATION
+   ================================ */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 0 20px;
+    }
+
+    .brand {
+        font-size: 17px;
+    }
+
+    .brand img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 430px;
+
+        padding: 40px 25px 35px;
+    }
+
+    .background-logo {
+        width: 400px;
+        height: 400px;
+
+        right: -150px;
+        bottom: -80px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+}

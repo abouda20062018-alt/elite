@@ -1,6 +1,56 @@
-/* =========================
+
+/* =========================================================
+   COLOR PALETTE
+   ========================================================= */
+
+:root {
+
+    /* ================= BLUE ================= */
+
+    --blue-50:  #E8F1FF;
+    --blue-100: #C7DDFF;
+    --blue-200: #8FBCFF;
+    --blue-300: #579BFF;
+    --blue-400: #287EFF;
+    --blue-500: #0066FF;
+    --blue-600: #0052CC;
+    --blue-700: #003FA3;
+    --blue-800: #00327F;
+    --blue-900: #002451;
+
+
+    /* ================= CYAN ================= */
+
+    --cyan-50:  #E8FCFD;
+    --cyan-100: #C8F6F8;
+    --cyan-200: #8DECEF;
+    --cyan-300: #55E1E4;
+    --cyan-400: #24D2D6;
+    --cyan-500: #00C9D7;
+    --cyan-600: #00AEBB;
+    --cyan-700: #008F9A;
+    --cyan-800: #00727A;
+    --cyan-900: #00555B;
+
+
+    /* ================= CARBONE ================= */
+
+    --carbone-50:  #F4F5F7;
+    --carbone-100: #E5E7EB;
+    --carbone-200: #D1D5DB;
+    --carbone-300: #9CA3AF;
+    --carbone-400: #6B7280;
+    --carbone-500: #4B5563;
+    --carbone-600: #374151;
+    --carbone-700: #252C38;
+    --carbone-800: #1B2029;
+    --carbone-900: #111827;
+}
+
+
+/* =========================================================
    RESET
-========================= */
+   ========================================================= */
 
 * {
     margin: 0;
@@ -9,78 +59,88 @@
 }
 
 
-/* =========================
+/* =========================================================
+   HTML
+   ========================================================= */
+
+html {
+    min-height: 100%;
+}
+
+
+/* =========================================================
    BODY
-========================= */
+   ========================================================= */
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
 
     min-height: 100vh;
 
-    background: linear-gradient(
-        135deg,
-        #f7fbff 0%,
-        #eef7ff 50%,
-        #dff5fc 100%
-    );
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-    color: #071b3a;
+    color: var(--carbone-800);
+
+    /* Main background */
+
+    background:
+
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(0, 201, 215, 0.10),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(0, 102, 255, 0.09),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            var(--blue-50) 50%,
+            var(--cyan-50) 100%
+        );
 
     display: flex;
+
     flex-direction: column;
 
+    position: relative;
+
     overflow-x: hidden;
+
 }
 
 
-/* =========================
-   HEADER
-========================= */
+/* =========================================================
+   BACKGROUND LOGO
+   ========================================================= */
 
-header {
-    width: 100%;
+/*
+   This is the BIG logo behind everything.
+   It must be inside:
 
-    padding: 25px 50px;
+   <div class="background-logo">
+       <img src="logo.png">
+   </div>
+*/
 
-    background: transparent;
-}
+.background-logo {
 
+    position: fixed;
 
-/* =========================
-   BRAND
-========================= */
+    z-index: 0;
 
-.brand {
-    display: flex;
+    width: 750px;
+    height: 750px;
 
-    align-items: center;
-
-    gap: 15px;
-}
-
-.brand img {
-    width: 55px;
-    height: 55px;
-
-    object-fit: contain;
-}
-
-.brand span {
-    font-size: 23px;
-
-    font-weight: bold;
-
-    color: #075dcc;
-}
-
-
-/* =========================
-   MAIN
-========================= */
-
-main {
-    flex: 1;
+    right: -120px;
+    bottom: -180px;
 
     display: flex;
 
@@ -88,344 +148,793 @@ main {
 
     align-items: center;
 
-    padding: 30px 20px;
+    pointer-events: none;
+
 }
 
 
-/* =========================
-   LOGIN AREA
-========================= */
+/* BIG LOGO IMAGE */
 
-.login-area {
+.background-logo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    /*
+       Very low opacity makes
+       the logo look like a watermark.
+    */
+
+    opacity: 0.055;
+
+    /*
+       Makes the logo softer and
+       closer to the white background.
+    */
+
+    filter:
+        saturate(0.8)
+        brightness(1.35);
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+
     width: 100%;
 
-    max-width: 550px;
+    padding: 25px 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
 
     position: relative;
+
+    z-index: 5;
+
 }
 
 
-/* =========================
-   DECORATION
-========================= */
+/* =========================================================
+   COMPANY BRAND
+   ========================================================= */
 
-.login-area::before {
-    content: "";
+.brand {
 
-    position: absolute;
+    display: flex;
 
-    width: 300px;
-    height: 300px;
+    align-items: center;
 
-    border-radius: 50%;
+    gap: 11px;
 
-    background: rgba(0, 190, 205, 0.08);
-
-    top: -100px;
-    left: -220px;
-
-    z-index: -1;
-}
-
-.login-area::after {
-    content: "";
-
-    position: absolute;
-
-    width: 350px;
-    height: 350px;
-
-    border-radius: 50%;
-
-    background: rgba(0, 91, 210, 0.06);
-
-    bottom: -180px;
-    right: -220px;
-
-    z-index: -1;
 }
 
 
-/* =========================
-   TITLE
-========================= */
+/* =========================================================
+   SMALL LOGO - TOP LEFT
+   ========================================================= */
+
+.brand img {
+
+    width: 48px;
+    height: 48px;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================================================
+   COMPANY NAME
+   ========================================================= */
+
+.brand span {
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+
+    text-transform: lowercase;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--blue-700),
+            var(--blue-500),
+            var(--cyan-500)
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+main {
+
+    flex: 1;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding: 45px 20px 60px;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   LOGIN AREA
+   ========================================================= */
+
+.login-area {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+/* =========================================================
+   WELCOME SECTION
+   ========================================================= */
 
 .welcome {
+
+    width: 100%;
+
     text-align: center;
 
     margin-bottom: 25px;
+
 }
+
+
+/* =========================================================
+   "BIENVENUE"
+   ========================================================= */
 
 .welcome h1 {
-    font-size: 46px;
 
-    font-weight: 700;
+    margin: 0;
 
-    color: #071b3a;
+    font-size: 38px;
 
-    margin-bottom: 10px;
+    font-weight: 800;
+
+    letter-spacing: -1.2px;
+
+    color: var(--carbone-900);
+
 }
+
+
+/* =========================================================
+   "CONNECTEZ-VOUS À VOTRE ESPACE"
+   ========================================================= */
 
 .welcome p {
-    font-size: 17px;
 
-    color: #60748c;
+    margin-top: 9px;
+
+    font-size: 15px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.2px;
+
+    color: var(--carbone-400);
+
 }
 
 
-/* =========================
-   FORM CARD
-========================= */
+/* =========================================================
+   LOGIN WHITE CARD
+   ========================================================= */
 
 .login-box {
+
     width: 100%;
 
-    padding: 35px 40px;
+    max-width: 420px;
 
-    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
 
-    border-radius: 20px;
+    background:
+
+        rgba(255, 255, 255, 0.93);
+
+    border:
+
+        1px solid
+        rgba(0, 102, 255, 0.12);
+
+    border-radius: 24px;
 
     box-shadow:
-        0 15px 40px rgba(0, 71, 150, 0.12);
 
-    border: 1px solid rgba(0, 150, 200, 0.15);
+        0 30px 70px
+        rgba(0, 50, 127, 0.13),
+
+        0 10px 25px
+        rgba(0, 0, 0, 0.04);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
 
     position: relative;
 
-    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
 }
 
 
-/* =========================
-   TOP LINE
-========================= */
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.login-box:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+
+        0 35px 80px
+        rgba(0, 50, 127, 0.16),
+
+        0 12px 30px
+        rgba(0, 0, 0, 0.05);
+
+}
+
+
+/* =========================================================
+   DECORATIVE BLUE/CYAN LINE
+   ========================================================= */
 
 .login-box::before {
+
     content: "";
 
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 5px;
-
-    background: linear-gradient(
-        90deg,
-        #075dcc,
-        #00bfc9
-    );
-}
-
-
-/* =========================
-   FORM GROUP
-========================= */
-
-.form-group {
-    margin-bottom: 17px;
-}
-
-
-/* =========================
-   LABEL
-========================= */
-
-.form-group label {
     display: block;
 
-    margin-bottom: 7px;
+    width: 55px;
 
-    color: #071b3a;
+    height: 4px;
 
-    font-size: 15px;
+    margin:
 
-    font-weight: bold;
+        0 auto 30px;
+
+    border-radius: 20px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--blue-500),
+            var(--cyan-500)
+        );
+
 }
 
 
-/* =========================
-   INPUT
-========================= */
+/* =========================================================
+   FORM
+   ========================================================= */
 
-.form-group input {
+form {
+
     width: 100%;
 
-    height: 48px;
+}
 
-    padding: 0 15px;
 
-    border: 1px solid #d2dce8;
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+
+    margin-bottom: 22px;
+
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--carbone-700);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input[type="email"],
+input[type="password"] {
+
+    width: 100%;
+
+    height: 50px;
+
+    padding:
+
+        0 16px;
+
+    border:
+
+        1.5px solid
+        var(--carbone-200);
 
     border-radius: 11px;
 
-    background: #ffffff;
-
-    color: #071b3a;
-
-    font-size: 15px;
-
     outline: none;
 
-    transition: 0.25s;
+    background: #ffffff;
+
+    color: var(--carbone-900);
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition:
+
+        border-color 0.25s ease,
+
+        box-shadow 0.25s ease,
+
+        transform 0.2s ease;
+
 }
 
 
-/* HOVER */
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
 
-.form-group input:hover {
-    border-color: #8dd8e3;
+input::placeholder {
+
+    color: var(--carbone-300);
+
 }
 
 
-/* FOCUS */
+/* =========================================================
+   INPUT HOVER
+   ========================================================= */
 
-.form-group input:focus {
-    border-color: #00aebe;
+input[type="email"]:hover,
+input[type="password"]:hover {
+
+    border-color: var(--blue-300);
+
+}
+
+
+/* =========================================================
+   INPUT FOCUS
+   ========================================================= */
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+
+    border-color: var(--blue-500);
 
     box-shadow:
-        0 0 0 4px rgba(0, 191, 201, 0.10);
+
+        0 0 0 4px
+        rgba(0, 102, 255, 0.10);
 
     transform: translateY(-1px);
+
 }
 
 
-/* =========================
-   BUTTON
-========================= */
+/* =========================================================
+   CONNECTION BUTTON
+   ========================================================= */
 
 .connexion {
+
     width: 100%;
 
-    height: 52px;
+    height: 50px;
 
-    margin-top: 8px;
+    margin-top: 5px;
 
     border: none;
 
-    border-radius: 12px;
-
-    background: linear-gradient(
-        135deg,
-        #075dcc,
-        #00bfc9
-    );
-
-    color: white;
-
-    font-size: 17px;
-
-    font-weight: bold;
+    border-radius: 11px;
 
     cursor: pointer;
 
-    box-shadow:
-        0 10px 25px rgba(0, 110, 190, 0.20);
+    color: #ffffff;
 
-    transition: 0.3s;
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+
+    background:
+
+        linear-gradient(
+            110deg,
+            var(--blue-700),
+            var(--blue-500),
+            var(--cyan-600)
+        );
+
+    box-shadow:
+
+        0 10px 25px
+        rgba(0, 102, 255, 0.22);
+
+    transition:
+
+        transform 0.2s ease,
+
+        box-shadow 0.2s ease,
+
+        filter 0.2s ease;
+
 }
 
 
-/* HOVER */
+/* =========================================================
+   BUTTON HOVER
+   ========================================================= */
 
 .connexion:hover {
-    transform: translateY(-4px);
+
+    transform: translateY(-2px);
 
     box-shadow:
-        0 16px 35px rgba(0, 110, 190, 0.28);
+
+        0 15px 30px
+        rgba(0, 102, 255, 0.30);
+
+    filter: brightness(1.05);
+
 }
 
 
-/* CLICK */
+/* =========================================================
+   BUTTON ACTIVE
+   ========================================================= */
 
 .connexion:active {
-    transform: translateY(-1px) scale(0.98);
+
+    transform: translateY(0);
+
+    box-shadow:
+
+        0 6px 15px
+        rgba(0, 102, 255, 0.20);
+
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* =========================================================
+   FORGOT PASSWORD
+   ========================================================= */
 
-footer {
-    width: 100%;
+.forgot {
 
-    padding: 18px;
+    display: block;
 
     text-align: center;
 
-    background: rgba(255, 255, 255, 0.80);
+    margin-top: 22px;
 
-    border-top: 1px solid rgba(0, 150, 200, 0.10);
-
-    color: #60748c;
+    color: var(--blue-600);
 
     font-size: 13px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+
+        color 0.2s ease,
+
+        opacity 0.2s ease;
+
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =========================================================
+   FORGOT PASSWORD HOVER
+   ========================================================= */
+
+.forgot:hover {
+
+    color: var(--cyan-700);
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    width: 100%;
+
+    text-align: center;
+
+    padding: 18px 20px;
+
+    border-top:
+
+        1px solid
+        rgba(0, 102, 255, 0.08);
+
+    background:
+
+        rgba(255, 255, 255, 0.55);
+
+    position: relative;
+
+    z-index: 3;
+
+}
+
+
+/* =========================================================
+   FOOTER TEXT
+   ========================================================= */
+
+footer p {
+
+    color: var(--carbone-500);
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
 
 @media (max-width: 700px) {
 
+    /* Header */
+
     header {
+
         padding: 20px;
+
     }
+
+
+    /* Brand */
 
     .brand img {
-        width: 48px;
-        height: 48px;
+
+        width: 42px;
+
+        height: 42px;
+
     }
+
 
     .brand span {
+
         font-size: 18px;
+
     }
+
+
+    /* Main */
 
     main {
-        padding: 25px 15px;
+
+        padding:
+
+            25px 15px 40px;
+
     }
+
+
+    /* Welcome */
+
+    .welcome {
+
+        margin-bottom: 20px;
+
+    }
+
 
     .welcome h1 {
-        font-size: 36px;
+
+        font-size: 31px;
+
     }
+
 
     .welcome p {
-        font-size: 15px;
+
+        font-size: 14px;
+
     }
 
+
+    /* Card */
+
     .login-box {
-        padding: 30px 22px;
+
+        padding: 30px 24px;
+
+        border-radius: 20px;
+
     }
+
+
+    /* Background logo */
+
+    .background-logo {
+
+        width: 500px;
+
+        height: 500px;
+
+        right: -180px;
+
+        bottom: -100px;
+
+    }
+
 }
 
 
-/* =========================
-   VERY SMALL SCREEN
-========================= */
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
 
 @media (max-width: 400px) {
 
-    .brand span {
-        display: none;
+    header {
+
+        padding:
+
+            16px;
+
     }
+
+
+    .brand img {
+
+        width: 38px;
+
+        height: 38px;
+
+    }
+
+
+    .brand span {
+
+        font-size: 16px;
+
+    }
+
+
+    main {
+
+        padding:
+
+            20px 12px 30px;
+
+    }
+
 
     .welcome h1 {
-        font-size: 31px;
+
+        font-size: 28px;
+
     }
+
+
+    .welcome p {
+
+        font-size: 13px;
+
+    }
+
 
     .login-box {
-        padding: 25px 18px;
+
+        padding: 25px 20px;
+
     }
 
-    .form-group input {
-        height: 45px;
-    }
-
-    .connexion {
-        height: 48px;
-    }
 }
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+
+    outline:
+
+        3px solid
+        rgba(0, 201, 215, 0.35);
+
+    outline-offset: 3px;
+
+}
+
+
+    .login-box {
+
+        padding: 30px 24px;
+
+        border-radius: 18px;
+
+    }
+
