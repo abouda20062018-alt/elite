@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Connexion Admin</title>
+
+    <link rel="stylesheet" href="page1.css">
+    <script src="page1.js"></script>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="brand">
+
+            <img
+                src="C:\Users\sedik\Desktop\image\logo.png"
+                alt="Elite Robotique"
+            >
+
+            <span>elite robotique</span>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <div class="admin-container">
+
+            <div class="welcome">
+
+                <h1>Connexion Admin</h1>
+
+                <p>Connectez-vous à votre espace administrateur</p>
+
+            </div>
+
+
+            <form onsubmit="return verifier()">
+
+                <div class="form-group">
+
+                    <label for="mail">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="mail"
+                        name="mail"
+                        placeholder="Entrez votre e-mail"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="mdp">
+                        Mot de passe
+                    </label>
+
+                    <input
+                        type="password"
+                        id="mdp"
+                        name="mdp"
+                        placeholder="Entrez votre mot de passe"
+                    >
+
+                </div>
+
+
+                <input
+                    type="submit"
+                    value="Connexion"
+                    class="connexion"
+                >
+
+            </form>
+
+
+            <a href="verification.html" class="forgot">
+                Mot de passe oublié ?
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Avenue Hédi Chaker — dessus de pharmacie de nuit
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

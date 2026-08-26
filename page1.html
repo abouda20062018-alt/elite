@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="page1.js"></script>
+
+    <title>Elite Robotique</title>
+</head>
+
+<body>
+
+    <div class="background-logo">
+        <img 
+            src="C:\Users\sedik\Desktop\image\logo.png"
+            alt="elite robotique"
+        >
+    </div>
+
+    <header>
+
+        <div class="brand">
+            <img 
+                src="C:\Users\sedik\Desktop\image\logo.png" 
+                alt="Elite Robotique"
+            >
+
+            <span>elite robotique</span>
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="login-area">
+
+            <div class="welcome">
+
+                <h1>Bienvenue</h1>
+
+                <p>Connectez-vous à votre espace</p>
+
+            </div>
+
+            <section class="login-box">
+
+                <form action="" method="post" onsubmit="return verifier()">
+
+                    <div class="form-group">
+
+                        <label for="mail">E-mail</label>
+
+                        <input
+                            type="email"
+                            name="mail"
+                            id="mail"
+                            placeholder="Entrez votre e-mail"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="mdp">Mot de passe</label>
+
+                        <input
+                            type="password"
+                            name="mdp"
+                            id="mdp"
+                            placeholder="Entrez votre mot de passe"
+                            required
+                        >
+
+                    </div>
+
+                    <input
+                        type="submit"
+                        value="Connexion"
+                        class="connexion"
+                    >
+
+                </form>
+
+                <a href="ajout.html" class="forgot">
+                    Ajouter compte
+                </a>
+
+                <a href="oblier.html" class="forgot">
+                    Mot de passe oublié ?
+                </a>
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <p>
+            Avenue Hédi Chaker — dessus de pharmacie de nuit
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

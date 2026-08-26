@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz Python</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- INTRODUCTION PYTHON -->
+
+    <div id="intro">
+
+        <div class="intro-content">
+
+            <div class="python-icon">🐍</div>
+
+            <h1>Bienvenue dans le Quiz Python !</h1>
+
+            <h2>🐍 Découvrez Python</h2>
+
+            <p>
+                Python est un langage de programmation populaire,
+                simple et facile à apprendre.
+            </p>
+
+            <p>
+                Il permet de créer des applications, des sites web,
+                analyser des données et développer des projets
+                d'intelligence artificielle.
+            </p>
+
+            <p>
+                Teste tes connaissances avec notre quiz
+                de 10 questions !
+            </p>
+
+
+            <div class="intro-info">
+
+                <div>📚 <strong>10 questions</strong></div>
+
+                <div>🏆 <strong>Score final</strong></div>
+
+                <div>🥇 <strong>Médailles</strong></div>
+
+            </div>
+
+
+            <button
+                class="start-button"
+                onclick="commencerQuiz()">
+
+                🚀 Commencer le Quiz
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- QUIZ -->
+
+    <div id="quiz">
+
+        <button
+            class="btn-retour"
+            onclick="retourAccueil()">
+
+            ← Accueil
+
+        </button>
+
+
+        <div class="header">
+
+            <h1>🐍 Quiz Python</h1>
+
+            <div id="score">
+
+                Score :
+                <span id="scoreValue">0</span>
+                /
+                <span id="totalQuestions">10</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="quiz-content">
+
+            <div class="question-number">
+
+                Question
+                <span id="numeroQuestion">1</span>
+                /
+                <span id="totalQuestions2">10</span>
+
+            </div>
+
+
+            <h2 id="question">
+                Question
+            </h2>
+
+
+            <div class="answers">
+
+                <div class="answer">
+
+                    <input
+                        type="radio"
+                        name="reponse"
+                        id="rep1">
+
+                    <label
+                        for="rep1"
+                        id="label1">
+
+                        Réponse 1
+
+                    </label>
+
+                </div>
+
+
+                <div class="answer">
+
+                    <input
+                        type="radio"
+                        name="reponse"
+                        id="rep2">
+
+                    <label
+                        for="rep2"
+                        id="label2">
+
+                        Réponse 2
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div id="resultat"></div>
+
+
+            <div class="buttons">
+
+                <button
+                    id="btnVerifier"
+                    onclick="verifier()">
+
+                    ✓ Vérifier
+
+                </button>
+
+
+                <button
+                    id="btnSuivant"
+                    onclick="suivant()">
+
+                    Question suivante →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer">
+
+            <span id="progression">
+                Question 1 sur 10
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- RESULTAT FINAL -->
+
+    <div id="resultatFinal">
+
+        <div class="resultat-box">
+
+            <div class="confettis">
+                🎉 🎊 ✨ 🎉 🎊
+            </div>
+
+            <h1>🏆 Résultat final</h1>
+
+
+            <div class="score-final">
+
+                <span id="scoreFinal">0</span>
+                / 10
+
+            </div>
+
+
+            <div id="messageFinal" class="message-final">
+                Bravo !
+            </div>
+
+
+            <div id="medaille" class="medaille"></div>
+
+
+            <button
+                class="btn-recommencer"
+                onclick="recommencerQuiz()">
+
+                🔄 Recommencer
+
+            </button>
+
+
+            <button
+                class="btn-intro"
+                onclick="retourAccueil()">
+
+                🏠 Accueil
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
