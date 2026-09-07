@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Créer un compte</title>
+    <title>Nouveau mot de passe</title>
 
     <link rel="stylesheet" href="page1.css">
 
@@ -18,7 +18,7 @@
 
     <div class="background-logo">
 
-        <img src="../image/logo.png" alt="Elite Robotique">
+        <img src="image/logo.png" alt="Elite Robotique">
 
     </div>
 
@@ -43,29 +43,33 @@
 
             <div class="welcome">
 
-                <h1>mots de passe oblier🔐 </h1>
+                <h1>Nouveau mot de passe</h1>
 
-                <p>Vérifiez votre e-mail</p>
+                <p>Créez votre nouveau mot de passe</p>
 
             </div>
 
 
             <section class="login-box">
 
-                <form action="" onsubmit="return verf()">
+
+                <form
+                    id="formPassword"
+                    onsubmit="return modifierMotDePasse()"
+                >
 
 
                     <div class="form-group">
 
-                        <label for="mail">
-                            E-mail
+                        <label for="mdp">
+                            Mot de passe
                         </label>
 
                         <input
-                            type="email"
-                            id="mail"
-                            name="mail"
-                            placeholder="Entrez votre e-mail"
+                            type="password"
+                            id="mdp"
+                            name="mdp"
+                            placeholder="Entrez votre mot de passe"
                         >
 
                     </div>
@@ -73,15 +77,15 @@
 
                     <div class="form-group">
 
-                        <label for="code">
-                            Code de vérification
+                        <label for="confirm">
+                            Confirmer mot de passe
                         </label>
 
                         <input
                             type="password"
-                            id="code"
-                            name="code"
-                            placeholder="Entrez votre code"
+                            id="confirm"
+                            name="confirm"
+                            placeholder="Confirmez votre mot de passe"
                         >
 
                     </div>
@@ -89,11 +93,12 @@
 
                     <input
                         type="submit"
-                        value="Vérifier le code"
+                        value="Créer le compte"
                         class="connexion"
                     >
 
                 </form>
+
 
             </section>
 
